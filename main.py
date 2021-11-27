@@ -26,6 +26,18 @@ def fraseper():
     frase = f"{character} says: {tsa.random_quote(character)[0]}"
     return frase
 
+@app.route("/frases/<name>")
+def frasename(name):
+    frase = f"{name} says: {tsa.random_quote(name)[0]}"
+    return frase
+
+
+@app.route("/frasestemp/<temp>")
+def frasetempo(temp):
+    frase = f"{tsa.random_season(temp)[0]}"
+    return frase
+
+
 
 
 

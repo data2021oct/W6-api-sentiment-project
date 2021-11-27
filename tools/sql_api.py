@@ -10,6 +10,13 @@ def personajes():
 
 def random_quote(character):
     idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
-    que = list(engine.execute(f"select texto from quotes where idcharacters ='{idchar}';"))
+    que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
+    return random.choice(que)
+
+def random_season(season):
+    idepisode = list(engine.execute(f"SELECT idEpisodio FROM episodios where idTemporadas = {season};"))[0]
+    randep = random.choice(idepisode)
+    que = list(engine.execute(f"SELECT texto FROM quotes WHERE idEpisodio ={randep};"))
+    
     return random.choice(que)
     
