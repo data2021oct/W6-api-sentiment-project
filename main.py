@@ -17,9 +17,14 @@ def inicial():
 
 @app.route("/personajes")
 def per():
-    return jsonify(tsa.personajes())
+    return jsonify(f"choose one of these characters: {', '.join(tsa.personajes())}")
 
 
+@app.route("/fraseper")
+def fraseper():
+    character = request.args.get("character")
+    frase = f"{character} says: {tsa.random_quote(character)[0]}"
+    return frase
 
 
 
