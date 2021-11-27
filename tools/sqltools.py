@@ -44,12 +44,12 @@ def check(col,value):
         else:
             return False
     
-    # elif col == "cancion":
-    #     query = list(engine.execute(f"SELECT nombre FROM canciones WHERE nombre = '{value}'"))
-    #     if len(query) > 0:
-    #         return True
-    #     else:
-    #         return False
+    elif col == "quote":
+        query = list(engine.execute(f"SELECT texto FROM quotes WHERE texto = '{value}'"))
+        if len(query) > 0:
+            return True
+        else:
+            return False
         
         
         
@@ -93,18 +93,46 @@ def dameId(col,value):
     if col == "character":
         return list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{value}';"))[0][0]
     elif col == "episode_title":
-        return list(engine.execute(f"SELECT idironhacker FROM ironhackers WHERE username ='{value}';"))[0][0]
+        return list(engine.execute(f"SELECT idEpisodio FROM episodios WHERE tituloEp ='{value}';"))[0][0]
     
     
-def insertEp(col,value,num,tempo):
+def insertquote(col,value,col2,col3):
     """
-    Llama a la función check para comprobar si existe el ironhacker
-    Inserta ironhacker si no existe
+    col2 = episode_title
+    col3 = character
     """
     if check(col, value):
         return "epiosde exists"
     else:
-        engine.execute(f"INSERT INTO episodios (texto,idEpisodio,idcharacters) VALUES ({num},'{value}',{tempo});")
-    
-    
+        
+        idEpisodio = dameId("episode_title",col2)
+        idcharacters = dameId("character",col3)
+         
+        engine.execute(f"INSERT INTO quotes (texto,idEpisodio,idcharacters) VALUES ('{value}',{idEpisodio},{idcharacters});")
+        
+        
+def insertaciones(df,col1,col2,col3,col4,col5):
+    """
+    col1 = season
+    col2 = character
+    col3 = episode_title
+    col4 = quote
+    col5 = episode_number
+    col6 =season
+    """
+
+    for i,r in df.iterrows():
+        try:
+            insertTemp(col1,r[col1])
+            
+            insertCar(col2,r[col2])
+
+            insertEp(col3,r[col3],r[col5],r[col1])
+
+            insertquote(col4,r[col4],r[col3],r[col2])
+        except:
+  
+            print(f"{i},{Exception}")
+        
+        
 #texto,idEpisodio,idcharacters
