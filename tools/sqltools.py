@@ -102,7 +102,7 @@ def insertquote(col,value,col2,col3):
     col3 = character
     """
     if check(col, value):
-        return "epiosde exists"
+        return "quote exists"
     else:
         
         idEpisodio = dameId("episode_title",col2)
@@ -132,7 +132,8 @@ def insertaciones(df,col1,col2,col3,col4,col5):
             insertquote(col4,r[col4],r[col3],r[col2])
         except:
   
-            print(f"{i},{Exception}")
+            return f"{i},{Exception}"
+            
         
         
 #texto,idEpisodio,idcharacters
