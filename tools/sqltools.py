@@ -4,7 +4,7 @@ from getpass import getpass
 #from config.configuration import engine
 
 
-
+#con jupyter notebook no me reconoce el engie de config.configuration... 
 import sqlalchemy as alch
 import os
 import dotenv
@@ -21,8 +21,8 @@ engine = alch.create_engine(connectionData)
 
 def check(col,value):
     """
-    recibe un nombre de columna y el contenido de una celda
-    comprueba en las tablas correspondientes existe el valor que le pasamos
+    recibe un nombre de columna y el contenido de una celda de pandas
+    comprueba en las tablas correspondientes de mysql existe el valor que le pasamos
     """
     if col == "season":
         query = list(engine.execute(f"SELECT idTemporadas FROM temporadas WHERE idTemporadas = {value};"))
@@ -65,8 +65,9 @@ def check(col,value):
         
 def insertTemp(col,value):
     """
-    Llama a la función check para comprobar si existe el ironhacker
-    Inserta ironhacker si no existe
+    recibe los datos de la columna temporada del dataframe
+    Llama a la función check para comprobar si existe
+    Inserta tempo si no existe
     """
     if check(col, value):
         return "season exists"
@@ -76,8 +77,9 @@ def insertTemp(col,value):
 
 def insertCar(col,value):
     """
-    Llama a la función check para comprobar si existe el ironhacker
-    Inserta ironhacker si no existe
+    recibe los datos de la columna character del dataframe
+    Llama a la función check para comprobar si existe
+    Inserta character si no existe
     """
     if check(col, value):
         return "character exists"
@@ -87,8 +89,9 @@ def insertCar(col,value):
 
 def insertEp(col,value,num,tempo):
     """
-    Llama a la función check para comprobar si existe el ironhacker
-    Inserta ironhacker si no existe
+    recibe los datos de la columna episodio, numepsidio  y temporada del dataframe
+    Llama a la función check para comprobar si existe el episodio
+    Inserta el episodio si no existe
     """
     if check(col, value):
         return "epiosde exists"
@@ -97,7 +100,8 @@ def insertEp(col,value,num,tempo):
         
 def dameId(col,value):
     """
-    Devuelve el ID de lo que le pidamos sabiendo que ese elemento EXISTE
+    recibe datos de characer y episode del dataframe
+    Devuelve el ID de mysql correspondiente de lo que le pidamos sabiendo que ese elemento EXISTE
     """
     if col == "character":
         return list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{value}';"))[0][0]
@@ -107,8 +111,11 @@ def dameId(col,value):
     
 def insertquote(col,value,col2,col3):
     """
+    recibe datos del dataframe col,value = corresponden a las quotes del dataframe
     col2 = episode_title
     col3 = character
+    comprueba si existe la frase que qu3eremos insertar
+    inserta frase si no existe
     """
     if check(col, value):
         return "quote exists"
@@ -122,11 +129,13 @@ def insertquote(col,value,col2,col3):
         
 def insertaciones(df,col1,col2,col3,col4,col5):
     """
+    recibe nombre de dataframe y datos de sus columnas: 
     col1 = season
     col2 = character
     col3 = episode_title
     col4 = quote
     col5 = episode_number
+    itera por el dataframe e inserta los datos recogidos en las tablas correspondientes de mysql
     """
 
     for i,r in df.iterrows():

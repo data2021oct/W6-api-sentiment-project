@@ -33,9 +33,10 @@ def frasetempo(temp):
 
 
 
-@app.route("/prueba", methods=["POST"])
+@app.route("/usuario", methods=["POST"])
 def usuario():
     names = request.form.get("nombre")
+    
     return tsa.insertusuario(names)
 
 
@@ -45,9 +46,7 @@ def insertamensaje():
     epi = request.form.get("episodio")
     charac = request.form.get("personaje")
     line = request.form.get("frase")
-    # PODRÍAMOS LLAMAR A FUNCIONES CHECK
-    print(temp, epi, charac, line)
-
+    
     return tsa.newline(temp, epi, charac, line)
 
 
