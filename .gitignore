@@ -1,0 +1,6 @@
+.env
+/.ipynb_checkpoints
+/tools/__pycache__
+/notebooks/.ipynb_checkpoints
+/notebooks/otros
+config/__pycache__

@@ -20,12 +20,6 @@ def per():
     return jsonify(f"choose one of these characters: {', '.join(tsa.personajes())}")
 
 
-@app.route("/fraseper")
-def fraseper():
-    character = request.args.get("character")
-    frase = f"{character} says: {tsa.random_quote(character)[0]}"
-    return frase
-
 @app.route("/frases/<name>")
 def frasename(name):
     frase = f"{name} says: {tsa.random_quote(name)[0]}"
@@ -34,8 +28,31 @@ def frasename(name):
 
 @app.route("/frasestemp/<temp>")
 def frasetempo(temp):
-    frase = f"{tsa.random_season(temp)[0]}"
+    frase = f"{tsa.random_season(temp)}"
     return frase
+
+
+
+@app.route("/prueba", methods=["POST"])
+def usuario():
+    names = request.form.get("nombre")
+    return tsa.insertusuario(names)
+
+
+@app.route("/newline", methods=["POST"])
+def insertamensaje():
+    temp = request.form.get("temporada")
+    epi = request.form.get("episodio")
+    charac = request.form.get("personaje")
+    line = request.form.get("frase")
+    # PODRÍAMOS LLAMAR A FUNCIONES CHECK
+    print(temp, epi, charac, line)
+
+    return tsa.newline(temp, epi, charac, line)
+
+
+
+
 
 
 

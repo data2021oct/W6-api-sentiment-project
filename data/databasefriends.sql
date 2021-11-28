@@ -14,14 +14,27 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_Z
 -- -----------------------------------------------------
 -- Schema friends
 -- -----------------------------------------------------
-DROP SCHEMA IF exists `friends`;
+DROP SCHEMA IF EXISTS `friends`;
 CREATE SCHEMA IF NOT EXISTS `friends` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `friends` ;
 
 -- -----------------------------------------------------
--- Table `friends`.`Temporadas`
+-- Table `friends`.`characters`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `friends`.`Temporadas` (
+CREATE TABLE IF NOT EXISTS `friends`.`characters` (
+  `idcharacters` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`idcharacters`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `friends`.`temporadas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `friends`.`temporadas` (
   `idTemporadas` INT NOT NULL,
   PRIMARY KEY (`idTemporadas`))
 ENGINE = InnoDB
@@ -30,31 +43,20 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `friends`.`Episodios`
+-- Table `friends`.`episodios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `friends`.`Episodios` (
+CREATE TABLE IF NOT EXISTS `friends`.`episodios` (
   `idEpisodio` INT NOT NULL AUTO_INCREMENT,
-  `number` INT NULL,
+  `numero` INT NULL DEFAULT NULL,
   `tituloEp` VARCHAR(65) NOT NULL,
   `idTemporadas` INT NULL DEFAULT NULL,
   PRIMARY KEY (`idEpisodio`),
   INDEX `ep_temp_idx` (`idTemporadas` ASC) VISIBLE,
   CONSTRAINT `ep_temp`
     FOREIGN KEY (`idTemporadas`)
-    REFERENCES `friends`.`Temporadas` (`idTemporadas`))
+    REFERENCES `friends`.`temporadas` (`idTemporadas`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `friends`.`characters`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `friends`.`characters` (
-  `idcharacters` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(15) NOT NULL,
-  PRIMARY KEY (`idcharacters`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 136
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -75,13 +77,23 @@ CREATE TABLE IF NOT EXISTS `friends`.`quotes` (
     REFERENCES `friends`.`characters` (`idcharacters`),
   CONSTRAINT `quoteep`
     FOREIGN KEY (`idEpisodio`)
-    REFERENCES `friends`.`Episodios` (`idEpisodio`))
+    REFERENCES `friends`.`episodios` (`idEpisodio`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
+-- -----------------------------------------------------
+-- Table `friends`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `friends`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idusuario`),
+  UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-

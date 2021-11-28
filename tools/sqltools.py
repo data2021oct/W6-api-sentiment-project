@@ -1,6 +1,7 @@
 import pandas as pd
 import sqlalchemy as alch
 from getpass import getpass
+#from config.configuration import engine
 
 
 
@@ -50,6 +51,14 @@ def check(col,value):
             return True
         else:
             return False
+    
+    elif col == "usuario":
+        query = list(engine.execute(f"SELECT nombre FROM usuario WHERE nombre = '{value}'"))
+        if len(query) > 0:
+            return True
+        else:
+            return False
+        
         
         
         
@@ -118,7 +127,6 @@ def insertaciones(df,col1,col2,col3,col4,col5):
     col3 = episode_title
     col4 = quote
     col5 = episode_number
-    col6 =season
     """
 
     for i,r in df.iterrows():
