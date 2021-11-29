@@ -78,4 +78,3 @@ line = "Could i have more lines?"
 ```
 Inserts a new line in our database
 
-
