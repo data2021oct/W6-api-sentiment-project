@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask import jsonify
 import tools.sql_api as tsa
 import tools.emotions as tem
+import tools.sqltools as sqt
 
 
 
@@ -23,8 +24,6 @@ def per():
 
 @app.route("/frases/<name>")
 def frasename(name):
-    # frase = f"{name} says: {tsa.random_quote(name)[0]}"
-    # return frase
     return tsa.random_quote(name)
 
 
@@ -56,14 +55,27 @@ def usuario():
     return tsa.insertusuario(names)
 
 
+@app.route("/newperson", methods=["POST"])
+def insertcharacter():
+    charac = request.form.get("personaje")
+    return sqt.insertCar("character",charac)
+
+@app.route("/newepisode", methods=["POST"])
+def insertepisode():
+    epis = request.form.get("episodio")
+    tempo = request.form.get("temporada")
+    num = request.form.get("numero")
+    return sqt.insertEp("episode_title",epis,num,tempo)
+
+
 @app.route("/newline", methods=["POST"])
-def insertamensaje():
-    temp = request.form.get("temporada")
-    epi = request.form.get("episodio")
+def insertline():
+    
+    episode = request.form.get("episodio")
     charac = request.form.get("personaje")
     line = request.form.get("frase")
+    return sqt.insertquote("quote",line,episode,charac)
     
-    return tsa.newline(temp, epi, charac, line)
     
 
 

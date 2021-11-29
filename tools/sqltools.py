@@ -4,7 +4,7 @@ from getpass import getpass
 #from config.configuration import engine
 
 
-#con jupyter notebook no me reconoce el engie de config.configuration... 
+#con jupyter notebook no me reconoce el engine de config.configuration... 
 import sqlalchemy as alch
 import os
 import dotenv
@@ -125,6 +125,7 @@ def insertquote(col,value,col2,col3):
         idcharacters = dameId("character",col3)
          
         engine.execute(f"INSERT INTO quotes (texto,idEpisodio,idcharacters) VALUES ('{value}',{idEpisodio},{idcharacters});")
+        return "inserted"
         
         
 def insertaciones(df,col1,col2,col3,col4,col5):
@@ -151,6 +152,3 @@ def insertaciones(df,col1,col2,col3,col4,col5):
   
             return f"{i},{Exception}"
             
-        
-        
-#texto,idEpisodio,idcharacters

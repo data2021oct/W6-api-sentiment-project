@@ -42,34 +42,6 @@ def insertusuario(nombre):
     except:
         return "fallo garrafal"
 
-
-# def newline(temp, epi, charac, line):
-#     """
-#     recibe temporada, episodio, nombre de presonaje y frase qué ha dicho
-#     la inserta en las tablas de mysql.
-
-#     """
-#     try:
-#         sqt.insertTemp("season",temp)
-#         sqt.insertCar("character",charac)
-#         sqt.insertEp("episode_title",epi)
-#         sqt.insertquote("quote",line,epi,charac)
-#         return "inserted"
-#     except:
-#         return "fallo garrafal"
-
-# def newline(temp, epi, charac, line):
-#     try:
-    
-#         sqt.insertTemp("season",temp)
-#         sqt.insertCar("character",charac)
-#         sqt.insertEp("episode_title",epi)
-#         sqt.insertquote("quote",line,epi,charac)
-#         return "inserted"
-    
-#     except:
-#         return "fallo garrafal"
-        
         
 
 def random_quote(character):
@@ -92,6 +64,5 @@ def random_quote(character):
         return redirect("http://127.0.0.1:5000/personajes")
         
         
-    
 
     

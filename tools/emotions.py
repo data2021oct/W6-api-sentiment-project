@@ -58,9 +58,5 @@ def sentimientos_fr(frase):
     sia = SentimentIntensityAnalyzer()
     toking = tokenizando(frase)
     analisis = sia.polarity_scores(toking)
-    
-    # neg = analisis["neg"]
-    # neu = analisis["neu"]
-    # pos = analisis["pos"]
-    # comp = analisis["compound"]
-    return analisis #[neg,neu,pos,comp]
+
+    return analisis
