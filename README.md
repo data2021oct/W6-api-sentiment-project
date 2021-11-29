@@ -37,19 +37,33 @@
 # Libraries:
 
 [sys](https://docs.python.org/3/library/sys.html)
+
 [pandas](https://pandas.pydata.org/)
+
 [os](https://docs.python.org/3/library/os.html)
+
 [sqlalchemy](https://docs.sqlalchemy.org/en/14/)
+
 [dotenv](https://pypi.org/project/python-dotenv/)
+
 [requests](https://pypi.org/project/requests/2.7.0/)
+
 [nltk](https://www.nltk.org/)
+
 [string](https://docs.python.org/3/library/string.html)
+
 [spacy](https://spacy.io/api/doc)
+
 [en_core_web_sm](https://spacy.io/models/en)
+
 [getpass](https://docs.python.org/es/3/library/getpass.html)
+
 [random](https://docs.python.org/es/3/library/random.html)
+
 [flask](https://flask.palletsprojects.com/en/2.0.x/)
+
 [re](https://docs.python.org/3/library/re.html)
+
 [textblob](https://textblob.readthedocs.io/en/dev/)
 
 
