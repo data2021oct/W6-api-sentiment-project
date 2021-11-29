@@ -10,21 +10,6 @@ def personajes():
     query = list(engine.execute("SELECT distinct(nombre) FROM friends.characters;"))
     return [q[0] for q in query]
 
-
-# def random_quote(character):
-#     """
-#     hace una seleccion del id de un personaje que se pide
-#     te devuelve una frase random de ese personaje
-#     """
-#     try: 
-#         idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
-#         que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
-#         frase = random.choice(que)[0]
-#         tot = f"{character} says: {frase} "
-#         return tot
-#     except:
-#         return redirect("http://127.0.0.1:5000/personajes")
-
 def random_season(season):
     """
     recibe un numero de temporada de friends (Entre el 1 y el 10)
@@ -73,17 +58,17 @@ def insertusuario(nombre):
 #     except:
 #         return "fallo garrafal"
 
-def newline(temp, epi, charac, line):
-    try:
+# def newline(temp, epi, charac, line):
+#     try:
     
-        sqt.insertTemp("season",temp)
-        sqt.insertCar("character",charac)
-        sqt.insertEp("episode_title",epi)
-        sqt.insertquote("quote",line,epi,charac)
-        return "inserted"
+#         sqt.insertTemp("season",temp)
+#         sqt.insertCar("character",charac)
+#         sqt.insertEp("episode_title",epi)
+#         sqt.insertquote("quote",line,epi,charac)
+#         return "inserted"
     
-    except:
-        return "fallo garrafal"
+#     except:
+#         return "fallo garrafal"
         
         
 
@@ -91,6 +76,7 @@ def random_quote(character):
     """
     hace una seleccion del id de un personaje que se pide
     te devuelve una frase random de ese personaje
+    también devuelve el nombre del episodio y la temporada en la que sale
     """
     try: 
         idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
@@ -100,7 +86,8 @@ def random_quote(character):
         episode = list(engine.execute(f"SELECT tituloEp FROM episodios WHERE idEpisodio ={idep};"))
         temp = list(engine.execute(f"SELECT idTemporadas FROM episodios WHERE idEpisodio ={idep};"))
         tot = f"{character} says: '{frase}' in episode '{episode[0][0]}' from season {temp[0][0]}"
-        return tot
+        dic = {"character": character, "line": frase, "episode": episode[0][0], "season" : temp[0][0]}
+        return dic
     except:
         return redirect("http://127.0.0.1:5000/personajes")
         

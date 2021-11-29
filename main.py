@@ -36,6 +36,19 @@ def frasetempo(temp):
 
 
 
+@app.route("/sentiment/<character>")
+
+def sentimientos(character):
+    """
+    listado = {neg,neu,pos,compound}
+    """
+    frase = tsa.random_quote(character)
+    listado = tem.sentimientos_fr(frase["line"])
+    dic = {"datos": frase, "sentimient":listado}
+    #return f"{frase} and the sentiment analisis is: {listado}"
+    return dic
+
+
 @app.route("/usuario", methods=["POST"])
 def usuario():
     names = request.form.get("nombre")
@@ -51,18 +64,6 @@ def insertamensaje():
     line = request.form.get("frase")
     
     return tsa.newline(temp, epi, charac, line)
-
-
-
-@app.route("/sentiment/<character>")
-
-def sentimientos(character):
-    """
-    listado = {neg,neu,pos,compound}
-    """
-    frase = tsa.random_quote(character)
-    listado = tem.sentimientos_fr(frase)
-    return f"{frase} and the sentiment analisis is: {listado}"
     
 
 
