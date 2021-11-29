@@ -14,7 +14,7 @@
 - Design the structure of the database in Mysql
 - Conecting jupyther notebook with mysql, insert a sample of the lines of the six main characters.
 - Write an API using flask to recive and store lines of the script.
-- Use the API to extract emotional value of the lines througth and endpoint
+- Use the API to extract emot(https://y.yarn.co/e875bec8-ea3f-4409-9f98-2290dea6189b_text.gif)
 
 
 # Structure:
