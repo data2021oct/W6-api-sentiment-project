@@ -6,6 +6,7 @@
 
 - Create my own API. This api recives, stores and serves lines from our beloved TV Show: **FRIENDS**
     - [API documentation](https://github.com/data2021oct/W6-api-sentiment-project/blob/main/api_documentation.md)
+    
 
 # Method:
 - Find a dataset with the script of Friends and use pandas to clean it: 
@@ -15,7 +16,8 @@
 - Write an API using flask to recive and store lines of the script.
 - Use the API to extract emotional value of the lines througth and endpoint
 
-# Content:
+
+# Structure:
 #### Folders:
     - config: configuration.py -> conects with mysql database
     - data:
@@ -31,3 +33,23 @@
 #### api_documentation.md
     - the user manual of my api
     - main.py -> runs my apis
+    
+# Libraries:
+
+[sys](https://docs.python.org/3/library/sys.html)
+[pandas](https://pandas.pydata.org/)
+[os](https://docs.python.org/3/library/os.html)
+[sqlalchemy](https://docs.sqlalchemy.org/en/14/)
+[dotenv](https://pypi.org/project/python-dotenv/)
+[requests](https://pypi.org/project/requests/2.7.0/)
+[nltk](https://www.nltk.org/)
+[string](https://docs.python.org/3/library/string.html)
+[spacy](https://spacy.io/api/doc)
+[en_core_web_sm](https://spacy.io/models/en)
+[getpass](https://docs.python.org/es/3/library/getpass.html)
+[random](https://docs.python.org/es/3/library/random.html)
+[flask](https://flask.palletsprojects.com/en/2.0.x/)
+[re](https://docs.python.org/3/library/re.html)
+[textblob](https://textblob.readthedocs.io/en/dev/)
+
+
