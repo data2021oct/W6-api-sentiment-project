@@ -1,16 +1,7 @@
 # W6-api-sentiment-project
 
-<audio controls>
-<source src="/sources/bethere.mp3" type="audio/mp3">
-    play
-</audio>
+[](https://media1.popsugar-assets.com/files/thumbor/CSTJRBzkQILxTqJfq761vtkDnnQ/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/28/928/n/1922283/6f2bf2d182bef221_orig-21241971/i/When-She-Harnesses-Her-Star-Power.gif)
 
-<audio controls="controls">
-  <source type="audio/mp3" src="sources/bethere.mp3"></source>
-  
-  <p>Your browser does not support the audio element.</p>
-</audio>
+# Objetive:
 
-
-
-C:\Users\usuario\ironhack\proyectos\W6-api-sentiment-project\sources 
+- Create 
