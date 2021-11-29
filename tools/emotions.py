@@ -55,6 +55,11 @@ def sentimental(col):
 
 
 def sentimientos_fr(frase):
+    """
+    recibe un string
+    lo tekeniza y analiza su sentiment con sia
+    devuelve un diccionario con el análisis
+    """
     sia = SentimentIntensityAnalyzer()
     toking = tokenizando(frase)
     analisis = sia.polarity_scores(toking)
