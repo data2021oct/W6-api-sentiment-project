@@ -10,6 +10,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def tokenizando(texto):
     """º
+    - para usar con dataframe
     recibe un string y lo tokeniza:
     quita palabras que no sirven para el análisis de sentimientos
     quita y reemplaza los sufijos de las palabras para dejarlas en la raíz
@@ -31,6 +32,7 @@ def tokenizando(texto):
 
 def sentimental(col):
     """
+    - para usar con dataframe
     recibe un string tokenizado
     devuelve una lista con su subjetividad, su polaridad según textblog
     también en la lista están incluidos los parámetros de sia(neg,neu,pos y compound)
@@ -50,3 +52,15 @@ def sentimental(col):
     total.append(polaridad["pos"])
     total.append(polaridad["compound"])
     return total
+
+
+def sentimientos_fr(frase):
+    sia = SentimentIntensityAnalyzer()
+    toking = tokenizando(frase)
+    analisis = sia.polarity_scores(toking)
+    
+    # neg = analisis["neg"]
+    # neu = analisis["neu"]
+    # pos = analisis["pos"]
+    # comp = analisis["compound"]
+    return analisis #[neg,neu,pos,comp]

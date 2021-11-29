@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask import jsonify
 import tools.sql_api as tsa
+import tools.emotions as tem
 
 
 
@@ -22,8 +23,10 @@ def per():
 
 @app.route("/frases/<name>")
 def frasename(name):
-    frase = f"{name} says: {tsa.random_quote(name)[0]}"
-    return frase
+    # frase = f"{name} says: {tsa.random_quote(name)[0]}"
+    # return frase
+    return tsa.random_quote(name)
+
 
 
 @app.route("/frasestemp/<temp>")
@@ -50,6 +53,17 @@ def insertamensaje():
     return tsa.newline(temp, epi, charac, line)
 
 
+
+@app.route("/sentiment/<character>")
+
+def sentimientos(character):
+    """
+    listado = [neg,neu,pos,compound]
+    """
+    frase = f"{character} says: {tsa.random_quote(character)[0]}"
+    listado = tem.sentimientos_fr(frase)
+    return listado
+    
 
 
 

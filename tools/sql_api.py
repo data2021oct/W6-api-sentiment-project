@@ -1,6 +1,7 @@
 from config.configuration import engine
 import random
 import sqltools as sqt
+from flask import redirect
 
 def personajes():
     """
@@ -15,9 +16,14 @@ def random_quote(character):
     hace una seleccion del id de un personaje que se pide
     te devuelve una frase random de ese personaje
     """
-    idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
-    que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
-    return random.choice(que)
+    try: 
+        idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
+        que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
+        frase = random.choice(que)[0]
+        tot = f"{character} says: {frase} "
+        return tot
+    except:
+        return redirect("http://127.0.0.1:5000/personajes")
 
 def random_season(season):
     """
@@ -52,24 +58,35 @@ def insertusuario(nombre):
         return "fallo garrafal"
 
 
-def newline(temp, epi, charac, line):
-    """
-    recibe temporada, episodio, nombre de presonaje y frase qué ha dicho
-    la inserta en las tablas de mysql.
+# def newline(temp, epi, charac, line):
+#     """
+#     recibe temporada, episodio, nombre de presonaje y frase qué ha dicho
+#     la inserta en las tablas de mysql.
 
-    """
+#     """
+#     try:
+#         sqt.insertTemp("season",temp)
+#         sqt.insertCar("character",charac)
+#         sqt.insertEp("episode_title",epi)
+#         sqt.insertquote("quote",line,epi,charac)
+#         return "inserted"
+#     except:
+#         return "fallo garrafal"
+
+def newline(temp, epi, charac, line):
     try:
+    
         sqt.insertTemp("season",temp)
         sqt.insertCar("character",charac)
         sqt.insertEp("episode_title",epi)
         sqt.insertquote("quote",line,epi,charac)
         return "inserted"
+    
     except:
         return "fallo garrafal"
-
-
-    
-    
+        
+        
+        
     
 
     
