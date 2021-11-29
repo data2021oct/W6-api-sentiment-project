@@ -9,12 +9,12 @@ This Api conects to a Mysql database that stores lines of the six main character
 
 # @GET
 
-- inicial: "http://127.0.0.1:5000/" 
+- inicial: [http://127.0.0.1:5000/](http://127.0.0.1:5000")
 
 Endpoint
 - /personajes
 
-A list of the characters to choose from so you have in the database
+A list of the characters to choose from
 
 Endpoint
 - /frases/name 
@@ -41,84 +41,41 @@ like frases/name endpoint it returns a random line of the chosen characters and 
 
 
 # @POST
-Endpoint
-- /nueva/frase
-
-De esta manera insertamos una frase en la base de datos.
-
 
 Endpoint
-- /frases/<name>
-
-Extraemos todas las frases que tenemos de un usuario en la base de datos
-
+- /usuario
 ```
-url_frases = "http://localhost:5000/frases/"
-person = "Albus Dumbledore"
+url = "http://127.0.0.1:5000/usuario
+nombre = username
 ```
+Your registration in our database. Your useranme is unique!!
+
+Endpoint
+- /newperson
+```
+url = "http://127.0.0.1:5000/newperson
+nombre = personaje
+```
+Inserts a new character in our database
+
+Endpoint
+- /newepisode
+```
+url = "http://127.0.0.1:5000/newepisode
+episodio = "the one with the new episode"
+temporada = 10
+numero = 3 #number of the episode in the season
+```
+Inserts a new episode in our database
+
+Endpoint
+- /newline
+```
+url = "http://127.0.0.1:5000/newline
+episodio = "the one with the new episode"
+personaje = "Chandler"
+line = "Could i have more lines?"
+```
+Inserts a new line in our database
 
 
-## ¿Qué personajes hay?
-Para saber los usuarios que hay en la base de datos tienes que hacer una query del tipo get al endpoint /personajes
-    
-    
- 
-
-@app.route("/personajes")
-def per():
-    return jsonify(f"choose one of these characters: {', '.join(tsa.personajes())}")
-
-
-@app.route("/frases/<name>")
-def frasename(name):
-    return tsa.random_quote(name)
-
-
-
-@app.route("/frasestemp/<temp>")
-def frasetempo(temp):
-    frase = f"{tsa.random_season(temp)}"
-    return frase
-
-
-
-@app.route("/sentiment/<character>")
-
-def sentimientos(character):
-    """
-    listado = {neg,neu,pos,compound}
-    """
-    frase = tsa.random_quote(character)
-    listado = tem.sentimientos_fr(frase["line"])
-    dic = {"datos": frase, "sentimient":listado}
-    #return f"{frase} and the sentiment analisis is: {listado}"
-    return dic
-
-
-@app.route("/usuario", methods=["POST"])
-def usuario():
-    names = request.form.get("nombre")
-    
-    return tsa.insertusuario(names)
-
-
-@app.route("/newperson", methods=["POST"])
-def insertcharacter():
-    charac = request.form.get("personaje")
-    return sqt.insertCar("character",charac)
-
-@app.route("/newepisode", methods=["POST"])
-def insertepisode():
-    epis = request.form.get("episodio")
-    tempo = request.form.get("temporada")
-    num = request.form.get("numero")
-    return sqt.insertEp("episode_title",epis,num,tempo)
-
-
-@app.route("/newline", methods=["POST"])
-def insertline():
-    
-    episode = request.form.get("episodio")
-    charac = request.form.get("personaje")
-    line = request.form.get("frase")
-    return sqt.insertquote("quote",line,episode,charac)
