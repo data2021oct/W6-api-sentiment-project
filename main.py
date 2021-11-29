@@ -58,11 +58,11 @@ def insertamensaje():
 
 def sentimientos(character):
     """
-    listado = [neg,neu,pos,compound]
+    listado = {neg,neu,pos,compound}
     """
-    frase = f"{character} says: {tsa.random_quote(character)[0]}"
+    frase = tsa.random_quote(character)
     listado = tem.sentimientos_fr(frase)
-    return listado
+    return f"{frase} and the sentiment analisis is: {listado}"
     
 
 

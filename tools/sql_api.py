@@ -11,19 +11,19 @@ def personajes():
     return [q[0] for q in query]
 
 
-def random_quote(character):
-    """
-    hace una seleccion del id de un personaje que se pide
-    te devuelve una frase random de ese personaje
-    """
-    try: 
-        idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
-        que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
-        frase = random.choice(que)[0]
-        tot = f"{character} says: {frase} "
-        return tot
-    except:
-        return redirect("http://127.0.0.1:5000/personajes")
+# def random_quote(character):
+#     """
+#     hace una seleccion del id de un personaje que se pide
+#     te devuelve una frase random de ese personaje
+#     """
+#     try: 
+#         idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
+#         que = list(engine.execute(f"SELECT texto FROM quotes WHERE idcharacters ='{idchar}';"))
+#         frase = random.choice(que)[0]
+#         tot = f"{character} says: {frase} "
+#         return tot
+#     except:
+#         return redirect("http://127.0.0.1:5000/personajes")
 
 def random_season(season):
     """
@@ -85,6 +85,24 @@ def newline(temp, epi, charac, line):
     except:
         return "fallo garrafal"
         
+        
+
+def random_quote(character):
+    """
+    hace una seleccion del id de un personaje que se pide
+    te devuelve una frase random de ese personaje
+    """
+    try: 
+        idchar = list(engine.execute(f"SELECT idcharacters FROM characters WHERE nombre ='{character}';"))[0][0]
+        que = list(engine.execute(f"SELECT texto,idEpisodio FROM quotes WHERE idcharacters ='{idchar}';"))
+        frase = random.choice(que)[0]
+        idep = random.choice(que)[1]
+        episode = list(engine.execute(f"SELECT tituloEp FROM episodios WHERE idEpisodio ={idep};"))
+        temp = list(engine.execute(f"SELECT idTemporadas FROM episodios WHERE idEpisodio ={idep};"))
+        tot = f"{character} says: '{frase}' in episode '{episode[0][0]}' from season {temp[0][0]}"
+        return tot
+    except:
+        return redirect("http://127.0.0.1:5000/personajes")
         
         
     
