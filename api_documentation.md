@@ -2,7 +2,7 @@
 # Api Friends' Lines
 This Api conects to a Mysql database that stores lines of the six main characters of the famous TV show.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q-9kPks0IfE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![](https://www.youtube.com/embed/q-9kPks0IfE)
 
 # ¿Cómo Funciona?
 
