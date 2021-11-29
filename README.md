@@ -19,20 +19,20 @@
 
 # Structure:
 #### Folders:
-    - config: configuration.py -> conects with mysql database
-    - data:
-        - friends-transcipt csv
-        - diferent csv that i have created during de cleansing of my data
-        - friends.mwb (creates the diagram of our database)
-        - databasefriends.sql: (the dump of the structure + data of our database)
-    - notebooks: (jupyther notebooks)
-        - 01_dataset_insert (cleaning a first insert of our data in mysql)
-        - 02_api_post (Use or my post apis)
-        - 03_NLTK (emotional value of my database)
-    - tools: (stores the .py documents with the functions that i use to create my apis)
+- config: configuration.py -> conects with mysql database
+- data:
+    - friends-transcipt csv
+    - diferent csv that i have created during de cleansing of my data
+    - friends.mwb (creates the diagram of our database)
+    - databasefriends.sql: (the dump of the structure + data of our database)
+- notebooks: (jupyther notebooks)
+    - 01_dataset_insert (cleaning a first insert of our data in mysql)
+    - 02_api_post (Use or my post apis)
+    - 03_NLTK (emotional value of my database)
+- tools: (stores the .py documents with the functions that i use to create my apis)
 #### api_documentation.md
-    - the user manual of my api
-    - main.py -> runs my apis
+- the user manual of my api
+- main.py -> runs my apis
     
 # Libraries:
 
