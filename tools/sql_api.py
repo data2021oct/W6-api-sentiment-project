@@ -24,7 +24,7 @@ def random_season(season):
         char = list(engine.execute(f"SELECT nombre FROM characters WHERE idcharacters = {line_ch[1]};"))[0][0]
         line = line_ch[0]
         
-        return f"in episdode '{epi}', from season {season} {char} says '{line}'"
+        return f"in episdode 'The one with {epi}', from season {season}, {char} says '{line}'"
     except:
         return "Friends tiene 10 temporadas, elige un número del 1 al 10"
     
@@ -57,8 +57,7 @@ def random_quote(character):
         idep = random.choice(que)[1]
         episode = list(engine.execute(f"SELECT tituloEp FROM episodios WHERE idEpisodio ={idep};"))
         temp = list(engine.execute(f"SELECT idTemporadas FROM episodios WHERE idEpisodio ={idep};"))
-        tot = f"{character} says: '{frase}' in episode '{episode[0][0]}' from season {temp[0][0]}"
-        dic = {"character": character, "line": frase, "episode": episode[0][0], "season" : temp[0][0]}
+        dic = {"character": character, "line": f"the one with {frase}", "episode": episode[0][0], "season" : temp[0][0]}
         return dic
     except:
         return redirect("http://127.0.0.1:5000/personajes")
