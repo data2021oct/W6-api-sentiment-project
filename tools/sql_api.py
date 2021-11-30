@@ -57,7 +57,7 @@ def random_quote(character):
         idep = random.choice(que)[1]
         episode = list(engine.execute(f"SELECT tituloEp FROM episodios WHERE idEpisodio ={idep};"))
         temp = list(engine.execute(f"SELECT idTemporadas FROM episodios WHERE idEpisodio ={idep};"))
-        dic = {"character": character, "line": f"the one with {frase}", "episode": episode[0][0], "season" : temp[0][0]}
+        dic = {"character": character, "line": frase, "episode":f"The one with {episode[0][0]}", "season" : temp[0][0]}
         return dic
     except:
         return redirect("http://127.0.0.1:5000/personajes")

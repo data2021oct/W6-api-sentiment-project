@@ -31,7 +31,9 @@
     - 02_api_post (Use or my post apis)
     - 03_NLTK (emotional value of my database)
 - tools: (stores the .py documents with the functions that i use to create my apis)
-#### api_documentation.md
+
+
+#### api_documentation
 - the user manual of my api
 - main.py -> runs my apis
     
@@ -52,6 +54,8 @@
 * [flask](https://flask.palletsprojects.com/en/2.0.x/)
 * [re](https://docs.python.org/3/library/re.html)
 * [textblob](https://textblob.readthedocs.io/en/dev/)
+* [seaborn](https://seaborn.pydata.org/)
+* [matplotlib](https://matplotlib.org/)
 
 ![](https://media1.popsugar-assets.com/files/thumbor/CSTJRBzkQILxTqJfq761vtkDnnQ/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/28/928/n/1922283/6f2bf2d182bef221_orig-21241971/i/When-She-Harnesses-Her-Star-Power.gif)
 
