@@ -1,6 +1,6 @@
 # The one with the apis
 
-![](https://media1.popsugar-assets.com/files/thumbor/CSTJRBzkQILxTqJfq761vtkDnnQ/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/28/928/n/1922283/6f2bf2d182bef221_orig-21241971/i/When-She-Harnesses-Her-Star-Power.gif)
+![](https://i.pinimg.com/originals/67/5f/5e/675f5ea011e851aa8e4f45f554b92966.gif)
 
 # Objetive:
 
@@ -37,34 +37,21 @@
     
 # Libraries:
 
-[sys](https://docs.python.org/3/library/sys.html)
+* [sys](https://docs.python.org/3/library/sys.html)
+* [pandas](https://pandas.pydata.org/)
+* [os](https://docs.python.org/3/library/os.html)
+* [sqlalchemy](https://docs.sqlalchemy.org/en/14/)
+* [dotenv](https://pypi.org/project/python-dotenv/)
+* [requests](https://pypi.org/project/requests/2.7.0/)
+* [nltk](https://www.nltk.org/)
+* [string](https://docs.python.org/3/library/string.html)
+* [spacy](https://spacy.io/api/doc)
+* [en_core_web_sm](https://spacy.io/models/en)
+* [getpass](https://docs.python.org/es/3/library/getpass.html)
+* [random](https://docs.python.org/es/3/library/random.html)
+* [flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [re](https://docs.python.org/3/library/re.html)
+* [textblob](https://textblob.readthedocs.io/en/dev/)
 
-[pandas](https://pandas.pydata.org/)
-
-[os](https://docs.python.org/3/library/os.html)
-
-[sqlalchemy](https://docs.sqlalchemy.org/en/14/)
-
-[dotenv](https://pypi.org/project/python-dotenv/)
-
-[requests](https://pypi.org/project/requests/2.7.0/)
-
-[nltk](https://www.nltk.org/)
-
-[string](https://docs.python.org/3/library/string.html)
-
-[spacy](https://spacy.io/api/doc)
-
-[en_core_web_sm](https://spacy.io/models/en)
-
-[getpass](https://docs.python.org/es/3/library/getpass.html)
-
-[random](https://docs.python.org/es/3/library/random.html)
-
-[flask](https://flask.palletsprojects.com/en/2.0.x/)
-
-[re](https://docs.python.org/3/library/re.html)
-
-[textblob](https://textblob.readthedocs.io/en/dev/)
-
+![](https://media1.popsugar-assets.com/files/thumbor/CSTJRBzkQILxTqJfq761vtkDnnQ/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/07/28/928/n/1922283/6f2bf2d182bef221_orig-21241971/i/When-She-Harnesses-Her-Star-Power.gif)
 
